@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { SocialIcon } from "react-social-icons";
+import { useTimer } from "react-timer-hook";
 
 import heroimg from "../assets/homepage.png";
 
@@ -16,6 +17,14 @@ const Home = () => {
         }
       }
     };
+  });
+
+  const time = new Date();
+  time.setSeconds(time.getSeconds() + 120);
+
+  const { seconds, minutes, hours } = useTimer({
+    expiryTimestamp: time,
+    onExpire: () => console.log("Timer expired"),
   });
 
   return (
@@ -61,43 +70,41 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="about" id="#founder">
-          <div className="card">
-            <div className="additional">
-              <div className="user-card">
-                <div className="founder-img"></div>
-              </div>
-              <div className="more-info">
-                <p className="founder-name">Darsheel Savla</p>
-                <div className="coords">
-                  <p className="text-left">Founder :</p>
-                  <p className="text-left">PatilKaki</p>
-                </div>
-                <div className="coords">
-                  <p className="text-left">Stays at :</p>
-                  <p className="text-left">India</p>
-                </div>
-                <div className="stats">
-                  <SocialIcon url="/" network="instagram" />
-                  <SocialIcon url="/" network="linkedin" />
-                  <SocialIcon url="/" network="x" />
-                  <SocialIcon url="/" network="github" />
-                </div>
-              </div>
+        <div className="card" id="#founder">
+          <div className="additional">
+            <div className="user-card">
+              <div className="founder-img"></div>
             </div>
-            <div className="general">
+            <div className="more-info">
               <p className="founder-name">Darsheel Savla</p>
-              <p className="founder-info">
-                A charismatic and creative powerhouse who infuses his passion
-                for food, people, and brand building into everything he does.
-                With an unshakable drive and an insatiable appetite for culinary
-                exploration, he's determined to bring the legendary recipes of
-                PatilKaki to the world. Also, a visionary leader with a passion
-                for building D2C businesses, Darsheel is rolling out his new
-                consultancy programme.
-              </p>
-              <p className="more">Hover over the image for more info</p>
+              <div className="coords">
+                <p className="text-left">Founder :</p>
+                <p className="text-left">PatilKaki</p>
+              </div>
+              <div className="coords">
+                <p className="text-left">Stays at :</p>
+                <p className="text-left">India</p>
+              </div>
+              <div className="stats">
+                <SocialIcon url="/" network="instagram" />
+                <SocialIcon url="/" network="linkedin" />
+                <SocialIcon url="/" network="x" />
+                <SocialIcon url="/" network="github" />
+              </div>
             </div>
+          </div>
+          <div className="general">
+            <p className="founder-name">Darsheel Savla</p>
+            <p className="founder-info">
+              A charismatic and creative powerhouse who infuses his passion for
+              food, people, and brand building into everything he does. With an
+              unshakable drive and an insatiable appetite for culinary
+              exploration, he's determined to bring the legendary recipes of
+              PatilKaki to the world. Also, a visionary leader with a passion
+              for building D2C businesses, Darsheel is rolling out his new
+              consultancy programme.
+            </p>
+            <p className="more">Hover over the image for more info</p>
           </div>
         </div>
 
@@ -115,7 +122,7 @@ const Home = () => {
               </div>
 
               <div className="num-ctn">
-                <div className="num-num">01</div>
+                <div className="num-num">02</div>
                 <div className="numinfo">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Veniam cum neque dicta assumenda ipsam.
@@ -125,7 +132,7 @@ const Home = () => {
 
             <div className="num-flex">
               <div className="num-ctn">
-                <div className="num-num">01</div>
+                <div className="num-num">03</div>
                 <div className="numinfo">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Veniam cum neque dicta assumenda ipsam.
@@ -133,15 +140,19 @@ const Home = () => {
               </div>
 
               <div className="num-ctn">
-                <div className="num-num">01</div>
+                <div className="num-num">04</div>
                 <div className="numinfo">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Veniam cum neque dicta assumenda ipsam.
                 </div>
               </div>
             </div>
-
           </div>
+        </div>
+
+        <div className="cta">
+          <div className="inner-cta-left"></div>
+          <div className="inner-cta-right"><span>{hours}</span> :<span>{minutes}</span> :<span>{seconds}</span></div>
         </div>
       </div>
     </div>
