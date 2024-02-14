@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { SocialIcon } from 'react-social-icons'
+import { SocialIcon } from "react-social-icons";
 
 import heroimg from "../assets/homepage.png";
 
@@ -25,7 +25,9 @@ const Home = () => {
           <a href="/#hero" className="link">
             Home
           </a>
-          <a className="link">Why Us ?</a>
+          <a className="link" href="/#steps">
+            Why Us ?
+          </a>
           <a href="/#bye" className="link">
             Buy
           </a>
@@ -63,8 +65,7 @@ const Home = () => {
           <div className="card">
             <div className="additional">
               <div className="user-card">
-                <div className="founder-img">
-                </div>
+                <div className="founder-img"></div>
               </div>
               <div className="more-info">
                 <p className="founder-name">Darsheel Savla</p>
@@ -77,23 +78,69 @@ const Home = () => {
                   <p className="text-left">India</p>
                 </div>
                 <div className="stats">
-                  <SocialIcon url="/" network="instagram"/>
-                  <SocialIcon url="/" network="linkedin"/>
-                  <SocialIcon url="/" network="x"/>
-                  <SocialIcon url="/" network="github"/>
+                  <SocialIcon url="/" network="instagram" />
+                  <SocialIcon url="/" network="linkedin" />
+                  <SocialIcon url="/" network="x" />
+                  <SocialIcon url="/" network="github" />
                 </div>
               </div>
             </div>
             <div className="general">
               <p className="founder-name">Darsheel Savla</p>
               <p className="founder-info">
-              A charismatic and creative powerhouse who infuses his passion for food, people, and brand building into everything 
-              he does. With an unshakable drive and an insatiable appetite for culinary exploration, he's determined to bring the
-               legendary recipes of PatilKaki to the world. Also, a visionary leader with a passion for building D2C businesses, 
-               Darsheel is rolling out his new consultancy programme.
+                A charismatic and creative powerhouse who infuses his passion
+                for food, people, and brand building into everything he does.
+                With an unshakable drive and an insatiable appetite for culinary
+                exploration, he's determined to bring the legendary recipes of
+                PatilKaki to the world. Also, a visionary leader with a passion
+                for building D2C businesses, Darsheel is rolling out his new
+                consultancy programme.
               </p>
               <p className="more">Hover over the image for more info</p>
             </div>
+          </div>
+        </div>
+
+        <div className="steps" id="#steps">
+          <div className="steps-inner">
+            <p className="steps-title">Unique Expertise</p>
+
+            <div className="num-flex">
+              <div className="num-ctn">
+                <div className="num-num">01</div>
+                <div className="numinfo">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Veniam cum neque dicta assumenda ipsam.
+                </div>
+              </div>
+
+              <div className="num-ctn">
+                <div className="num-num">01</div>
+                <div className="numinfo">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Veniam cum neque dicta assumenda ipsam.
+                </div>
+              </div>
+            </div>
+
+            <div className="num-flex">
+              <div className="num-ctn">
+                <div className="num-num">01</div>
+                <div className="numinfo">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Veniam cum neque dicta assumenda ipsam.
+                </div>
+              </div>
+
+              <div className="num-ctn">
+                <div className="num-num">01</div>
+                <div className="numinfo">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Veniam cum neque dicta assumenda ipsam.
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
