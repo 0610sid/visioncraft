@@ -31,7 +31,9 @@ const Home = () => {
     setTimeout(() => {
       setshow(true);
     }, 15000);
-    AOS.init()
+    AOS.init({
+      easing : "ease"
+    })
   }, []);
 
   const { seconds, minutes, hours } = useTimer({
@@ -84,7 +86,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="card" id="founder" data-aos = "flip-left" data-aos-delay="300" data-aos-once = "false">
+        <div className="card" id="founder" data-aos = "flip-left" data-aos-delay="300" data-aos-once = "false" data-aos-duration="500">
           <div className="additional">
             <div className="user-card">
               <div className="founder-img"></div>
@@ -122,7 +124,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="steps" id="steps" data-aos = "zoom-in" data-aos-delay="300" data-aos-once = "false">
+        <div className="steps" id="steps" data-aos = "zoom-in" data-aos-delay="300" data-aos-once = "false" data-aos-duration="500">
           <div className="steps-inner">
             <p className="steps-title">Unique Expertise</p>
 
@@ -164,7 +166,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="cta" id="cta" data-aos = "flip-right" data-aos-delay="300" data-aos-once = "false">
+        <div className="cta" id="cta" data-aos = "flip-right" data-aos-delay="300" data-aos-once = "false" data-aos-duration="500">
           <div className="inner-cta-left">
             <p className="cta-txt">This was made for you</p>
             <p className="cta-txt">What are you waiting for ?</p>
@@ -192,7 +194,7 @@ const Home = () => {
             </div>
 
             <p className="timer-tag">
-              Offer valids for limited time period only
+              **Offer valid for limited time period only
             </p>
           </div>
         </div>
