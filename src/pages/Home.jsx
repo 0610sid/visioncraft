@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { SocialIcon } from "react-social-icons";
 import { useTimer } from "react-timer-hook";
-
-import heroimg from "../assets/homepage.png";
+import cross from "../assets/cross.png";
+import email from "../assets/email.png";
+import phone from "../assets/phone.png";
+import AOS from "aos"
+import 'aos/dist/aos.css';
 
 const Home = () => {
+  const [show, setshow] = useState(false);
+
   useEffect(() => {
     window.onscroll = function () {
       if (document.documentElement.scrollTop > 70) {
@@ -20,29 +25,42 @@ const Home = () => {
   });
 
   const time = new Date();
-  time.setSeconds(time.getSeconds() + 120);
+  time.setSeconds(time.getSeconds() + 600);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setshow(true);
+    }, 15000);
+    AOS.init()
+  }, []);
 
   const { seconds, minutes, hours } = useTimer({
     expiryTimestamp: time,
     onExpire: () => console.log("Timer expired"),
   });
 
+  var hero = document.getElementById("hero")
+  var founder = document.getElementById("founder")
+  var steps = document.getElementById("steps")
+  var cta = document.getElementById("cta")
+
   return (
     <div className="container">
       <div className="navbar" id="nav">
+        <p className="nav-title">VisionCraft</p>
         <div className="navbar-allign">
-          <a href="/#hero" className="link">
+          <div onClick={() => {hero.scrollIntoView({behavior : "smooth" , block : "start"})}} className="link">
             Home
-          </a>
-          <a className="link" href="/#steps">
-            Why Us ?
-          </a>
-          <a href="/#bye" className="link">
-            Buy
-          </a>
-          <a href="/#founder" className="link">
+          </div>
+          <div className="link" onClick={() => {steps.scrollIntoView({behavior : "smooth" , block : "start"})}}>
+            Proficiency
+          </div>
+          <div onClick={() => {founder.scrollIntoView({behavior : "smooth" , block : "start"})}} className="link">
             About Founder
-          </a>
+          </div>
+          <div onClick={() => {cta.scrollIntoView({behavior : "smooth" , block : "start"})}} className="link">
+            Buy
+          </div>
         </div>
       </div>
 
@@ -62,15 +80,11 @@ const Home = () => {
               <span style={{ "--i": 9 }}>f</span>
               <span style={{ "--i": 10 }}>t</span>
             </div>
-            <p className="tagline">Crafting D2C Success Together</p>
-          </div>
-
-          <div className="hero-right">
-            <img src={heroimg} />
+            <p className="tagline">Crafted for you, delivered by us.</p>
           </div>
         </div>
 
-        <div className="card" id="#founder">
+        <div className="card" id="founder" data-aos = "flip-left" data-aos-delay="300" data-aos-once = "false">
           <div className="additional">
             <div className="user-card">
               <div className="founder-img"></div>
@@ -82,14 +96,14 @@ const Home = () => {
                 <p className="text-left">PatilKaki</p>
               </div>
               <div className="coords">
-                <p className="text-left">Stays at :</p>
-                <p className="text-left">India</p>
+                <p className="text-left">Key Contribution :</p>
+                <p className="text-left">Forbes 40 Under 40</p>
               </div>
               <div className="stats">
                 <SocialIcon url="/" network="instagram" />
                 <SocialIcon url="/" network="linkedin" />
                 <SocialIcon url="/" network="x" />
-                <SocialIcon url="/" network="github" />
+                <SocialIcon url="/" network="email" />
               </div>
             </div>
           </div>
@@ -108,7 +122,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="steps" id="#steps">
+        <div className="steps" id="steps" data-aos = "zoom-in" data-aos-delay="300" data-aos-once = "false">
           <div className="steps-inner">
             <p className="steps-title">Unique Expertise</p>
 
@@ -150,11 +164,65 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="cta">
-          <div className="inner-cta-left"></div>
-          <div className="inner-cta-right"><span>{hours}</span> :<span>{minutes}</span> :<span>{seconds}</span></div>
+        <div className="cta" id="cta" data-aos = "flip-right" data-aos-delay="300" data-aos-once = "false">
+          <div className="inner-cta-left">
+            <p className="cta-txt">This was made for you</p>
+            <p className="cta-txt">What are you waiting for ?</p>
+          </div>
+          <div className="inner-cta-right">
+            <div className="timer-outer">
+              <div>
+                <p>{hours}</p>
+                <p>Hours</p>
+              </div>
+              :
+              <div>
+                <p>{minutes}</p>
+                <p>Minutes</p>
+              </div>
+              :
+              <div>
+                <p>{seconds}</p>
+                <p>Seconds</p>
+              </div>
+            </div>
+
+            <div className="btn-container">
+              <button className="btn">Buy Now</button>
+            </div>
+
+            <p className="timer-tag">
+              Offer valids for limited time period only
+            </p>
+          </div>
         </div>
       </div>
+
+      {show && (
+        <div className="popupform">
+          <button
+            className="closebtn"
+            onClick={() => {
+              setshow(false);
+            }}
+          >
+            <img src={cross} className="cross" />
+          </button>
+          
+          <p className="form-text">Kindly fill the below form</p>
+          <div className="field-ctn">
+            <div className="fields">
+              <img src={email} className="img"/>
+              <input className="input" placeholder='Email' type='text' />
+            </div>
+            <div className="fields">
+              <img src={phone} className="img"/>
+              <input className="input" placeholder='Number' type='text' />
+            </div>
+          </div>
+          <div className="btn-container"><button className="yellow-btn">Submit</button></div>
+        </div>
+      )}
     </div>
   );
 };
